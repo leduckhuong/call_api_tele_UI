@@ -1,0 +1,30 @@
+{
+  "name": "call_api_tele_ui",
+  "version": "1.0.0",
+  "description": "UI for call data from telegram",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --inspect src/index.js",
+    "build": "webpack",
+    "build-watch": "webpack --watch",
+    "sass": "sass --style=compressed --no-source-map src/resources/scss:src/public/css",
+    "sass-watch": "sass --style=compressed --no-source-map --watch src/resources/scss:src/public/css",
+    "tailwindcss": "tailwindcss -i src/resources/tailwind/style.css -o src/public/css/style.css",
+    "tailwindcss-watch": "tailwindcss -i src/resources/tailwind/style.css -o src/public/css/style.css --watch"
+  },
+  "author": "leduckhuong2002",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "mongoose": "^8.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "sass": "^1.80.4",
+    "tailwindcss": "^3.4.14"
+  }
+}

@@ -1,0 +1,23 @@
+@use 'variables' as *;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: $myFont !important;
+    font-size: $myFontSize !important;
+    color: $myColor;
+    background-color: $myBgrColor;
+    font-style: normal;
+}
+
+body {
+    font-size: 1.4rem;
+}
+ul, nav {
+    list-style-type: none !important;
+}
+a {
+    text-decoration: none;
+}

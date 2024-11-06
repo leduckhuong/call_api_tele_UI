@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALL API TELEGRAM UI</title>
+    <link rel="shortcut icon" href="/logos/logo.png" type="image/x-icon">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/reset.css">
+</head>
+<body class="text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 relative z-0 text-2xl font-medium">
+	<%- include('partials/header')%>
+    <div class="app h-screen w-screen">
+		<div class="flex justify-center items-center">
+			<div class="max-w-[400px] max-h-[600px] dark:bg-slate-100">
+				<form action="/auth/register" method="post" id="form1">
+					<h1>Create Account</h1>
+					<div class="">
+						<a href="#" class="" id="googleRegister"><i class="fa-brands fa-google"></i></a>
+						<a href="#" class="" id="facebookRegister"><i class="fa-brands fa-facebook"></i></a>
+						<a href="#" class="" id="githubRegister"><i class="fa-brands fa-github"></i></a>
+						<a href="#" class="" id="twitterRegister"><i class="fa-brands fa-x-twitter"></i></a>
+					</div>
+					<div class="">
+						<label for="form1Email" class="text-3xl">Email</label>
+						<input id="form1Email" name="email" type="text" placeholder="VD: email@domain.com" class="text-slate-800 w-full leading-10 mt-4 py-2 px-4 rounded-md focus:outline-2 
+                focus:outline-offset-2 focus:outline-blue-900">
+						<span class=""></span>
+					</div>
+					<div class="">
+						<label for="form1Password" class="text-3xl">Password</label>
+						<input id="form1Password" name="password" type="password" class="text-slate-800 w-full leading-10 mt-4 py-2 px-4 rounded-md focus:outline-2 
+                focus:outline-offset-2 focus:outline-blue-900">
+						<span class=""></span>
+					</div>
+					<div class="">
+						<label for="form1PasswordConfirmation" class="text-3xl">Confirm password!</label>
+						<input id="form1PasswordConfirmation" type="password" class="text-slate-800 w-full leading-10 mt-4 py-2 px-4 rounded-md focus:outline-2 
+                focus:outline-offset-2 focus:outline-blue-900">
+						<span class=""></span>
+					</div>
+					<button type="submit">Sign Up</button>
+				</form>
+			</div>
+			<div class="max-w-[400px] max-h-[600px] hidden">
+				<form action="/auth/login" method="post" id="form2">
+					<h1>Sign In</h1>
+					<div class="">
+						<a href="#" class="" id="googleLogin"><i class="fa-brands fa-google"></i></a>
+						<a href="#" class="" id="facebookLogin"><i class="fa-brands fa-facebook"></i></a>
+						<a href="#" class="" id="githubLogin"><i class="fa-brands fa-github"></i></a>
+						<a href="#" class="" id="twitterLogin"><i class="fa-brands fa-x-twitter"></i></a>
+					</div>
+					<div class="">
+						<label for="form2Email" class="text-3xl">Email</label>
+						<input id="form2Email" name="email" type="text" placeholder="VD: email@domain.com" class="text-slate-800 w-full leading-10 mt-4 py-2 px-4 rounded-md focus:outline-2 
+                focus:outline-offset-2 focus:outline-blue-900">
+						<span class=""></span>
+					</div>
+					<div class="">
+						<label for="form2Password" class="text-3xl">Password</label>
+						<input id="form2Password" name="password" type="password" class="text-slate-800 w-full leading-10 mt-4 py-2 px-4 rounded-md focus:outline-2 
+                focus:outline-offset-2 focus:outline-blue-900">
+						<span class=""></span>
+					</div>
+					<div class="">
+						<a href="/forgotpw">Forgot Your Password?</a>
+					</div>
+					<button type="submit">Sign In</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<%- include('partials/footer')%>
+</body>
+</html>
