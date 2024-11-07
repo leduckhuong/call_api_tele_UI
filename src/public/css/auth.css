@@ -1,0 +1,1 @@
+body::after{content:"";position:absolute;top:-100px;right:100px;width:800px;height:800px;background:url("/imgs/tele-shape.svg") top center/cover no-repeat;z-index:-1;opacity:.5}

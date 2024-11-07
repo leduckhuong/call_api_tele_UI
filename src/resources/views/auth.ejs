@@ -8,70 +8,116 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/auth.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body class="text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 relative z-0 text-2xl font-medium">
 	<%- include('partials/header')%>
-    <div class="app h-screen w-screen">
-		<div class="flex justify-center items-center">
-			<div class="max-w-[400px] max-h-[600px] dark:bg-slate-100">
-				<form action="/auth/register" method="post" id="form1">
-					<h1>Create Account</h1>
-					<div class="">
-						<a href="#" class="" id="googleRegister"><i class="fa-brands fa-google"></i></a>
-						<a href="#" class="" id="facebookRegister"><i class="fa-brands fa-facebook"></i></a>
-						<a href="#" class="" id="githubRegister"><i class="fa-brands fa-github"></i></a>
-						<a href="#" class="" id="twitterRegister"><i class="fa-brands fa-x-twitter"></i></a>
-					</div>
-					<div class="">
+    <div class="app min-h-screen text-slate-600">
+		<div class="h-screen flex justify-center items-center">
+			<div id="formLogin" class="w-[400px] max-h-[600px] dark:bg-slate-100 px-4 py-12 rounded-2xl hidden">
+				<form action="/auth/login" method="post" id="form1">
+					<h1 class="text-4xl text-center">Login</h1>
+					<div class="mt-2">
 						<label for="form1Email" class="text-3xl">Email</label>
-						<input id="form1Email" name="email" type="text" placeholder="VD: email@domain.com" class="text-slate-800 w-full leading-10 mt-4 py-2 px-4 rounded-md focus:outline-2 
+						<input id="form1Email" name="email" type="text" placeholder="VD: email@domain.com" class="drop-shadow-sm text-slate-800 w-full leading-10 mt-2 py-2 px-4 rounded-md focus:outline-2 
                 focus:outline-offset-2 focus:outline-blue-900">
-						<span class=""></span>
+						<span class="mt-2 italic text-red-500 font-light opacity-0">Incorect</span>
 					</div>
-					<div class="">
+					<div class="mt-2">
 						<label for="form1Password" class="text-3xl">Password</label>
-						<input id="form1Password" name="password" type="password" class="text-slate-800 w-full leading-10 mt-4 py-2 px-4 rounded-md focus:outline-2 
-                focus:outline-offset-2 focus:outline-blue-900">
-						<span class=""></span>
+						<div class="w-full mt-2 relative">
+							<input id="form1Password" name="password" type="password" class="drop-shadow-sm text-slate-800 w-full leading-10 py-2 px-4 rounded-md focus:outline-2 
+							focus:outline-offset-2 focus:outline-blue-900">
+							<div class="absolute right-2 top-1/4 text-gray-400 cursor-pointer"><i class="fa-regular fa-eye"></i></div>
+						</div>
+						<span class="mt-2 italic text-red-500 font-light opacity-0">Incorect</span>
 					</div>
-					<div class="">
-						<label for="form1PasswordConfirmation" class="text-3xl">Confirm password!</label>
-						<input id="form1PasswordConfirmation" type="password" class="text-slate-800 w-full leading-10 mt-4 py-2 px-4 rounded-md focus:outline-2 
-                focus:outline-offset-2 focus:outline-blue-900">
-						<span class=""></span>
+					<button class="drop-shadow-sm w-full rounded-md bg-cyan-600 text-slate-200 hover:bg-cyan-500 text-slate-100 border border-transparent active:border-solid 
+					active:border-sky-500 active:bg-transparent active:text-slate-900 py-4 text-center text-3xl uppercase" type="submit">Sign Up</button>
+					<div class="flex items-center justify-center text-center mt-12 font-light">
+						<hr class="flex-grow border-t border-gray-300 mr-4">
+						<span class="px-4 text-gray-500">Or login with</span>
+						<hr class="flex-grow border-t border-gray-300 ml-4">
+					</div>					
+					<div class="flex justify-around items-center mt-8 text-slate-500">
+						<div class="w-16 h-16 border-2 border-sky-200 rounded-lg flex justify-center items-center hover:sky-gray-300 hover:bg-cyan-100 hover:text-sky-500 cursor-pointer" 
+							id="googleRegister"><i class="fa-brands fa-google"></i></div>
+						<div class="w-16 h-16 border-2 border-sky-200 rounded-lg flex justify-center items-center hover:sky-gray-300 hover:bg-cyan-100 hover:text-sky-500 cursor-pointer" 
+							id="facebookRegister"><i class="fa-brands fa-facebook"></i></div>
+						<div class="w-16 h-16 border-2 border-sky-200 rounded-lg flex justify-center items-center hover:sky-gray-300 hover:bg-cyan-100 hover:text-sky-500 cursor-pointer" 
+							id="githubRegister"><i class="fa-brands fa-github"></i></div>
+						<div class="w-16 h-16 border-2 border-sky-200 rounded-lg flex justify-center items-center hover:sky-gray-300 hover:bg-cyan-100 hover:text-sky-500 cursor-pointer" 
+							id="twitterRegister"><i class="fa-brands fa-x-twitter"></i></div>
 					</div>
-					<button type="submit">Sign Up</button>
 				</form>
+				<div class="text-center mt-12">
+					<span id="changeToRegister" class="text-gray-400 hover:text-gray-500 hover:underline cursor-pointer">New here? Create an account</span>
+				</div>
 			</div>
-			<div class="max-w-[400px] max-h-[600px] hidden">
-				<form action="/auth/login" method="post" id="form2">
-					<h1>Sign In</h1>
-					<div class="">
-						<a href="#" class="" id="googleLogin"><i class="fa-brands fa-google"></i></a>
-						<a href="#" class="" id="facebookLogin"><i class="fa-brands fa-facebook"></i></a>
-						<a href="#" class="" id="githubLogin"><i class="fa-brands fa-github"></i></a>
-						<a href="#" class="" id="twitterLogin"><i class="fa-brands fa-x-twitter"></i></a>
-					</div>
-					<div class="">
-						<label for="form2Email" class="text-3xl">Email</label>
-						<input id="form2Email" name="email" type="text" placeholder="VD: email@domain.com" class="text-slate-800 w-full leading-10 mt-4 py-2 px-4 rounded-md focus:outline-2 
+			<div id="formRegister" class="w-[400px] max-h-[600px] dark:bg-slate-100 px-4 py-12 rounded-2xl">
+				<form action="/auth/register" method="post" id="form2">
+					<h1 class="text-4xl text-center">Create Account</h1>
+					<div class="mt-2">
+						<label for="form1Email" class="text-3xl">Email</label>
+						<input id="form1Email" name="email" type="text" placeholder="VD: email@domain.com" class="drop-shadow-sm text-slate-800 w-full leading-10 mt-2 py-2 px-4 rounded-md focus:outline-2 
                 focus:outline-offset-2 focus:outline-blue-900">
-						<span class=""></span>
+						<span class="mt-2 italic text-red-500 font-light opacity-0">Incorect</span>
 					</div>
-					<div class="">
-						<label for="form2Password" class="text-3xl">Password</label>
-						<input id="form2Password" name="password" type="password" class="text-slate-800 w-full leading-10 mt-4 py-2 px-4 rounded-md focus:outline-2 
-                focus:outline-offset-2 focus:outline-blue-900">
-						<span class=""></span>
+					<div class="mt-2">
+						<label for="form1Password" class="text-3xl">Password</label>
+						<div class="w-full mt-2 relative">
+							<input id="form1Password" name="password" type="password" class="drop-shadow-sm text-slate-800 w-full leading-10 py-2 px-4 rounded-md focus:outline-2 
+							focus:outline-offset-2 focus:outline-blue-900">
+							<div class="absolute right-2 top-1/4 text-gray-400 cursor-pointer"><i class="fa-regular fa-eye"></i></div>
+						</div>
+						<span class="mt-2 italic text-red-500 font-light opacity-0">Incorect</span>
 					</div>
-					<div class="">
-						<a href="/forgotpw">Forgot Your Password?</a>
+					<div class="mt-2">
+						<label for="form1PasswordConfirmation" class="text-3xl">Confirm password!</label>
+						<div class="w-full mt-2 relative">
+							<input id="form1PasswordConfirmation" name="password" type="password" class="drop-shadow-sm text-slate-800 w-full leading-10 py-2 px-4 rounded-md focus:outline-2 
+							focus:outline-offset-2 focus:outline-blue-900">
+							<div class="absolute right-2 top-1/4 text-gray-400 cursor-pointer"><i class="fa-regular fa-eye"></i></div>
+						</div>
+						<span class="mt-2 italic text-red-500 font-light opacity-0">Incorect</span>
 					</div>
-					<button type="submit">Sign In</button>
+					<button class="drop-shadow-sm w-full rounded-md bg-cyan-600 text-slate-200 hover:bg-cyan-500 text-slate-100 border border-transparent active:border-solid 
+					active:border-sky-500 active:bg-transparent active:text-slate-900 py-4 text-center text-3xl uppercase" type="submit">Sign Up</button>
+					<div class="flex items-center justify-center text-center mt-12 font-light">
+						<hr class="flex-grow border-t border-gray-300 mr-4">
+						<span class="px-4 text-gray-500">Or register with</span>
+						<hr class="flex-grow border-t border-gray-300 ml-4">
+					</div>					
+					<div class="flex justify-around items-center mt-8 text-slate-500">
+						<div class="w-16 h-16 border-2 border-sky-200 rounded-lg flex justify-center items-center hover:sky-gray-300 hover:bg-cyan-100 hover:text-sky-500 cursor-pointer" 
+							id="googleRegister"><i class="fa-brands fa-google"></i></div>
+						<div class="w-16 h-16 border-2 border-sky-200 rounded-lg flex justify-center items-center hover:sky-gray-300 hover:bg-cyan-100 hover:text-sky-500 cursor-pointer" 
+							id="facebookRegister"><i class="fa-brands fa-facebook"></i></div>
+						<div class="w-16 h-16 border-2 border-sky-200 rounded-lg flex justify-center items-center hover:sky-gray-300 hover:bg-cyan-100 hover:text-sky-500 cursor-pointer" 
+							id="githubRegister"><i class="fa-brands fa-github"></i></div>
+						<div class="w-16 h-16 border-2 border-sky-200 rounded-lg flex justify-center items-center hover:sky-gray-300 hover:bg-cyan-100 hover:text-sky-500 cursor-pointer" 
+							id="twitterRegister"><i class="fa-brands fa-x-twitter"></i></div>
+					</div>
 				</form>
+				<div class="text-center mt-12">
+					<span id="changeToLogin" class="text-gray-400 hover:text-gray-500 hover:underline cursor-pointer">Have an account? Sign in now</span>
+				</div>
 			</div>
 		</div>
 	</div>
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			$("#changeToRegister").click(() => {
+				$('#formRegister').toggleClass('hidden');
+				$('#formLogin').toggleClass('hidden');
+			});
+			$('#changeToLogin').click(() => {
+				$('#formRegister').toggleClass('hidden');
+				$('#formLogin').toggleClass('hidden');
+			})
+		})
+	</script>
 	<%- include('partials/footer')%>
 </body>
 </html>
