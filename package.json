@@ -16,15 +16,19 @@
   "author": "leduckhuong2002",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.7",
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
+    "http-errors": "^2.0.0",
     "mongoose": "^8.7.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.7",
     "sass": "^1.80.4",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.14",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
   }
 }

@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CALL API TELEGRAM UI</title>
-    <link rel="shortcut icon" href="/logos/logo.png" type="image/x-icon">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css " rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/auth.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js " defer></script>
 </head>
-<body class="text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 relative z-0 text-2xl font-medium">
-	<%- include('partials/header')%>
-    <div class="app min-h-screen text-slate-600">
+<body class="text-slate-600 dark:text-slate-400 relative z-0 text-2xl font-medium">
+    <%- include('partials/header');%>
+    <div class="app min-h-screen text-slate-600"  style="background: url('/imgs/slide2.webp') top center / cover no-repeat;">
 		<div class="h-screen flex justify-center items-center">
-			<div id="formLogin" class="w-[400px] max-h-[600px] dark:bg-slate-100 px-4 py-12 rounded-2xl hidden">
+			<div id="formLogin" class="w-[400px] max-h-[600px] dark:bg-slate-100 px-4 py-12 rounded-2xl">
 				<form action="/auth/login" method="post" id="form1">
 					<h1 class="text-4xl text-center">Login</h1>
 					<div class="mt-2">
@@ -27,7 +27,7 @@
 					<div class="mt-2">
 						<label for="form1Password" class="text-3xl">Password</label>
 						<div class="w-full mt-2 relative">
-							<input id="form1Password" name="password" type="password" class="drop-shadow-sm text-slate-800 w-full leading-10 py-2 px-4 rounded-md focus:outline-2 
+							<input id="form1Password" name="pass" type="password" class="drop-shadow-sm text-slate-800 w-full leading-10 py-2 px-4 rounded-md focus:outline-2 
 							focus:outline-offset-2 focus:outline-blue-900">
 							<div class="absolute right-2 top-1/4 text-gray-400 cursor-pointer"><i class="fa-regular fa-eye"></i></div>
 						</div>
@@ -42,41 +42,41 @@
 					</div>					
 					<div class="flex justify-around items-center mt-8 text-slate-500">
 						<div class="w-16 h-16 border-2 border-sky-200 rounded-lg flex justify-center items-center hover:sky-gray-300 hover:bg-cyan-100 hover:text-sky-500 cursor-pointer" 
-							id="googleRegister"><i class="fa-brands fa-google"></i></div>
+							id="googleLogin"><i class="fa-brands fa-google"></i></div>
 						<div class="w-16 h-16 border-2 border-sky-200 rounded-lg flex justify-center items-center hover:sky-gray-300 hover:bg-cyan-100 hover:text-sky-500 cursor-pointer" 
-							id="facebookRegister"><i class="fa-brands fa-facebook"></i></div>
+							id="facebookLogin"><i class="fa-brands fa-facebook"></i></div>
 						<div class="w-16 h-16 border-2 border-sky-200 rounded-lg flex justify-center items-center hover:sky-gray-300 hover:bg-cyan-100 hover:text-sky-500 cursor-pointer" 
-							id="githubRegister"><i class="fa-brands fa-github"></i></div>
+							id="githubLogin"><i class="fa-brands fa-github"></i></div>
 						<div class="w-16 h-16 border-2 border-sky-200 rounded-lg flex justify-center items-center hover:sky-gray-300 hover:bg-cyan-100 hover:text-sky-500 cursor-pointer" 
-							id="twitterRegister"><i class="fa-brands fa-x-twitter"></i></div>
+							id="twitterLogin"><i class="fa-brands fa-x-twitter"></i></div>
 					</div>
 				</form>
 				<div class="text-center mt-12">
 					<span id="changeToRegister" class="text-gray-400 hover:text-gray-500 hover:underline cursor-pointer">New here? Create an account</span>
 				</div>
 			</div>
-			<div id="formRegister" class="w-[400px] max-h-[600px] dark:bg-slate-100 px-4 py-12 rounded-2xl">
+			<div id="formRegister" class="w-[400px] max-h-[600px] dark:bg-slate-100 px-4 py-12 rounded-2xl hidden">
 				<form action="/auth/register" method="post" id="form2">
 					<h1 class="text-4xl text-center">Create Account</h1>
 					<div class="mt-2">
-						<label for="form1Email" class="text-3xl">Email</label>
-						<input id="form1Email" name="email" type="text" placeholder="VD: email@domain.com" class="drop-shadow-sm text-slate-800 w-full leading-10 mt-2 py-2 px-4 rounded-md focus:outline-2 
+						<label for="form2Email" class="text-3xl">Email</label>
+						<input id="form2Email" name="email" type="text" placeholder="VD: email@domain.com" class="drop-shadow-sm text-slate-800 w-full leading-10 mt-2 py-2 px-4 rounded-md focus:outline-2 
                 focus:outline-offset-2 focus:outline-blue-900">
 						<span class="mt-2 italic text-red-500 font-light opacity-0">Incorect</span>
 					</div>
 					<div class="mt-2">
-						<label for="form1Password" class="text-3xl">Password</label>
+						<label for="form2Password" class="text-3xl">Password</label>
 						<div class="w-full mt-2 relative">
-							<input id="form1Password" name="password" type="password" class="drop-shadow-sm text-slate-800 w-full leading-10 py-2 px-4 rounded-md focus:outline-2 
+							<input id="form2Password" name="pass" type="password" class="drop-shadow-sm text-slate-800 w-full leading-10 py-2 px-4 rounded-md focus:outline-2 
 							focus:outline-offset-2 focus:outline-blue-900">
 							<div class="absolute right-2 top-1/4 text-gray-400 cursor-pointer"><i class="fa-regular fa-eye"></i></div>
 						</div>
 						<span class="mt-2 italic text-red-500 font-light opacity-0">Incorect</span>
 					</div>
 					<div class="mt-2">
-						<label for="form1PasswordConfirmation" class="text-3xl">Confirm password!</label>
+						<label for="form2PasswordConfirmation" class="text-3xl">Confirm password!</label>
 						<div class="w-full mt-2 relative">
-							<input id="form1PasswordConfirmation" name="password" type="password" class="drop-shadow-sm text-slate-800 w-full leading-10 py-2 px-4 rounded-md focus:outline-2 
+							<input id="form2PasswordConfirmation" name="pass" type="password" class="drop-shadow-sm text-slate-800 w-full leading-10 py-2 px-4 rounded-md focus:outline-2 
 							focus:outline-offset-2 focus:outline-blue-900">
 							<div class="absolute right-2 top-1/4 text-gray-400 cursor-pointer"><i class="fa-regular fa-eye"></i></div>
 						</div>
@@ -118,6 +118,6 @@
 			})
 		})
 	</script>
-	<%- include('partials/footer')%>
+	<%- include('partials/footer');%>
 </body>
 </html>
