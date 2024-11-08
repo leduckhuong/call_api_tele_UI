@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
+
 const app = require('./app');
 const db = require('./configs/mongodb/index.mongodb');
 const route = require('./routes/index.route');

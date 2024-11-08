@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALL API TELEGRAM UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css " rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js " defer></script>
+</head>
+<body>
+    <div class="min-h-screen flex justify-center items-center bg-slate-900">
+        <div class="max-w-[400px] mx-auto rounded-lg bg-white px-12 py-16 drop-shadow-lg">
+            <form action="/auth/login" method="post" id="form3">
+                <h1 class="text-4xl text-center">Verify code</h1>
+                <div class="mt-2">
+                    <label for="verifyCode" class="text-3xl">Enter verify code</label>
+                    <input id="verifyCode" name="code" type="text" placeholder="4 digits code" class="drop-shadow-sm text-slate-800 w-full leading-10 mt-2 py-2 px-4 rounded-md focus:outline-2 
+            focus:outline-offset-2 focus:outline-blue-900">
+                    <span class="mt-2 italic text-red-500 font-light opacity-0">Incorect</span>
+                </div>
+                <button class="drop-shadow-sm rounded-md bg-cyan-600 text-slate-200 hover:bg-cyan-500 text-slate-100 border border-transparent active:border-solid 
+                active:border-sky-500 active:bg-transparent active:text-slate-900 py-4 text-center text-3xl uppercase" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

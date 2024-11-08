@@ -11,44 +11,44 @@ class Auth {
         if(!userData.email || !userData.pass) return res.status(400).json({ message: 'Invalid request data' });
         try {
             const response = await axios.post(`${process.env.AUTH_SERVER}/login`, userData);
-            return res.send(response.data);
-            // const {uid, accessToken} = response.data;
-            // const cookieOptions = { signed: true, maxAge: 3600000 };
-            // return res.cookie('act', accessToken, cookieOptions)
-            // .cookie('uid', uid, cookieOptions)
-            // .redirect('/');
+            const {uid, accessToken} = response.data;
+            const cookieOptions = { signed: true, maxAge: 3600000 };
+            return res.cookie('act', accessToken, cookieOptions)
+            .cookie('uid', uid, cookieOptions)
+            .redirect('/');
         } catch (error) {
             errorFlowUtil(error, next);
         }
     }
     async register (req, res, next) {
         const userData = req.body;
+        console.log(userData);
         if(!userData.email || !userData.pass) return res.status(400).json({ message: 'Invalid request data' });
         try {
             const response = await axios.post(`${process.env.AUTH_SERVER}/register`, userData);
-            return res.json(response.data);
-            // return res.cookie('status', 'register-success', {maxAge: 2000})
-            // .cookie('uid', response.data.uid, { signed: true })
-            // .cookie('exp', response.data.expires, {maxAge: 120000})
-            // .redirect('/register/verify');
+            return res.cookie('status', 'register-success', {maxAge: 2000})
+            .cookie('uid', response.data.uid, { signed: true })
+            .cookie('exp', response.data.expires, {maxAge: 120000})
+            .redirect('/auth/verify');
         } catch (error) {
             errorFlowUtil(error, next);
         }
     }
     async verifyUI (req, res, next) {
-        try {
-            const exp = new Date(req.cookies.exp);
-            if(!exp || exp == 'Invalid Date') return res.render('index', { languages, isVerify: true });
-            const currentTime = new Date();
-            const timeDifference = exp - currentTime;
-            const time = Math.floor(timeDifference / 1000);
-            return res.render('index', { 
-                isVerify: true,
-                time
-            });
-        } catch (error) {
-            errorFlowUtil(error, next);
-        }
+        return res.render('verifyEmail');
+        // try {
+        //     const exp = new Date(req.cookies.exp);
+        //     if(!exp || exp == 'Invalid Date') return res.render('index');
+        //     const currentTime = new Date();
+        //     const timeDifference = exp - currentTime;
+        //     const time = Math.floor(timeDifference / 1000);
+        //     return res.render('verifyEmail', { 
+        //         isVerify: true,
+        //         time
+        //     });
+        // } catch (error) {
+        //     errorFlowUtil(error, next);
+        // }
     }
     async verify (req, res, next) {
         const id = req.signedCookies.uid;
