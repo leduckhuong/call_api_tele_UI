@@ -15,6 +15,12 @@
   },
   "author": "leduckhuong2002",
   "license": "ISC",
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
   "dependencies": {
     "axios": "^1.7.7",
     "cookie-parser": "^1.4.7",
@@ -22,12 +28,19 @@
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "http-errors": "^2.0.0",
-    "mongoose": "^8.7.2"
+    "mongoose": "^8.7.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "babel-loader": "^9.2.1",
     "nodemon": "^3.1.7",
     "sass": "^1.80.4",
     "tailwindcss": "^3.4.14",
+    "terser-webpack-plugin": "^5.3.10",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4"
   }
