@@ -2,9 +2,9 @@ const path = require('path');
 const TeserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-    entry: './src/client/index.js',
+    entry: path.join(__dirname, 'src', 'resources', 'client', 'index.js'),
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'src', 'public', 'dist'),
         filename: 'bundle.js',
     },
     module: {
